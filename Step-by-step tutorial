@@ -1,0 +1,103 @@
+  ______ __  __ __     __     ___           ________     __   __                   ____         _         
+ / ___(_) /_/ // /_ __/ /    / _/__  ____  / ___/ (_)___/ /__/ /____ ___ ___ _    / __/_ _____ (_)__  ___ 
+/ (_ / / __/ _  / // / _ \  / _/ _ \/ __/ / /__/ / / __/  '_/ __/ -_) _ `/  ' \  / _// // (_-</ / _ \/ _ \
+\___/_/\__/_//_/\_,_/_.__/ /_/ \___/_/    \___/_/_/\__/_/\_\\__/\__/\_,_/_/_/_/ /_/  \_,_/___/_/\___/_//_/
+
+Welcome to the full tutorial of how to implement GitHub into Clickteam Fusion. (No image tutorial)
+This tutorial treats you as an person who knows how to code in Fusion and knows how to use GitHub.
+
+# Dependencies
+- Clickteam Fusion 2.5 or Multimedia Fusion 2
+- "Download object" and "Get object" extension (Downloadable in object manager or on DarkWire)
+- Internet connection
+- GitHub account and "GitHub Desktop" applicaton
+
+# Step 1 - Forking/Making a repository
+This should be one of the easiest parts of the tutorial. Making a repository on GitHub is pretty easy to do.
+
+First thing you want to do is FORK the repository: RedShadowXD/GitHub-for-Clickteam-Fusion
+You can rename your fork into whatever you like. Your fork must be PUBLIC.
+
+# Step 2 - Cloning the fork/repository to your local files (RECOMMENDED BUT OPTIONAL)
+You will open GitHub Desktop and you will need to press Ctrl+Shift+O (Repository Cloning Shortcut) or on the top-left: File > Clone Repository
+Select your fork/repository and press "Clone"
+A folder will be created at the Local path you set above the Clone button, in that folder will be some Git files, otherwise, empty.
+
+# Step 3 - Uploading files to your fork/repository
+Currently, this tutorial only shows how to import IMAGES and TEXT to Fusion so we will only teach you how to import both of them.
+
+Start by uploading a text (.txt) or image (.png, .jpg.....) file to your fork/repository via your local folder or via the GitHub website.
+To upload a file with your local folder, you need to put a file in the folder you just cloned and launching the program "update.cmd" inside the folder.
+After you finished uploading files to GitHub, you should see them in your fork/repository on the GitHub Website, GitHub Desktop app and in the folder of course.
+
+CAREFUL! If you are importing images, make sure that the image and the Active have the same width and length! Text can be anything.
+
+# Step 4 - Starting to code
+Create a new application or open your existing game.
+Create the following objects:
+
+- Download object (for images)
+- Get object (for text)
+
+We are going to make a string (for text) and an Active (the same resolution as the image you uploaded to GitHub).
+Remember to center your Active's HOTSPOT!
+Then we are going to enter the Event/List editor to code the process of downloading and importing the files into Fusion!
+
+# Step 5 - Coding the download and import of images into Fusion
+Make a "Start of Frame" condition (or use an existing one)
+Right-click on the Download object and press the "Download file" event.
+It will ask you for an URL. (It must start with "https://" or "http://").
+Now go to GitHub and open the raw link of your image. The URL should look like this: 
+
+"https://raw.githubusercontent.com/RedShadowXD/GitHub-for-Clickteam-Fusion/main/image.png"
+
+You can copy your raw image link into the expression editor.
+Next, it will ask you for a destination. You probably want to put it in your application path. If you want that, press "Use expression" under the "Cancel" button.
+If you want to put it into your application folder, type the following:
+
+Apppath$ + " \ <image_file_name> .png "
+
+You can also put it in folders but that is optional.
+After that, it will ask you for a slot number. You can put the slot number to anything.
+
+Now to import the image into Fusion, make a new condition for the Download object. It's called "Download successfully completed?"
+Now what you want to do is make a new event by right-clicking on your Active object > Animation > Load Frame
+It will ask you for a destination, do the same things as you did for downloading the image. You MUST type the same destination path and file name.
+Press the "Stopped" animation, leave the direction to default, display frame 0 and put 100000 for every thing after that. The transparent color is default.
+
+You need to build your application in the directory of the file destination folder or put your MFA in the file destination folder and test it with running the app.
+The image should appear instead of the default Active sprite!
+
+# Step 6 - Coding the download and import of text into Fusion
+Make a "Start of Frame" condition (or use an existing one)
+Right-click on the Get object and press the "Get URL" event.
+It will ask you for an URL. (It must start with "https://" or "http://").
+Now go to GitHub and open the raw link of your text file. The URL should look like this: 
+
+"https://raw.githubusercontent.com/RedShadowXD/GitHub-for-Clickteam-Fusion/main/text.txt"
+
+Now to import the image into Fusion, make a new condition for the Get object. It's called "On get complete"
+Now what you want to do is make a new event by right-clicking on your String object > Change alterable string
+In the expression editor, right-click on the Get object under the editor and press "Get recieved", you can then press Enter.
+
+You can test if the text from GitHub appears instead of the string default text by running the application in Fusion or by building.
+Application destination doesn't matter for downloading text files.
+The text should appear instead of the default string text!
+
+# Outro
+And there we go! That's all you need to know to use GitHub in Fusion!
+                        
+          .--,-``-.     
+         /   /     '.   
+    ,--./ ../        ;  
+   /  /|\ ``\  .`-    ' 
+  '  / ' \___\/   \   : 
+ /  / /       \   :   | 
+/  / ,        /  /   /  
+\ '\ \        \  \   \  
+ \  \ '   ___ /   :   | 
+  \  . | /   /\   /   : 
+   \__\./ ,,/  ',-    . 
+        \ ''\        ;  
+         \   \     .'   
+          `--`-,,-'     
